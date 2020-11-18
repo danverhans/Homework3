@@ -1,5 +1,4 @@
 <template>
-    <div class="list">
     <section class="login-page">
       <section id="login-container">
         <div>
@@ -17,13 +16,13 @@
           <h3>Please Log In</h3>
           <form action="index.html" method="post">
             <div>
-              <input type="text" name="email" placeholder="Email">
+              <input placeholder="Email">
             </div>
             <div>
-              <input type="password" name="password" placeholder="Password">
+              <input type="password" placeholder="Password">
             </div>
             <div>
-                <router-link to="/index"><button class="button" type="submit" name="login">Log In</button></router-link>
+                <router-link to="/index"><button class="button">Log In</button></router-link>
             </div>
             <div>
               <small>
@@ -33,11 +32,10 @@
           </form>
         </div>
       </section>
-    </section>    </div>
+    </section>    
 </template>
 
 <script>
-
 
     export default {
         name: 'Login',
@@ -65,6 +63,7 @@
     background-color: #ffffff;
     box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
     text-align: center;
+    margin-top: 8%;
 }
 
 #login-container form div > input {

@@ -1,15 +1,24 @@
 <template>
     <div class="list">
       <Navbar goNext="Browse"/>
-    <section class="main-container">Index.vue</section>
+    <section class="main-container">
+      <LikeButton />
+      <FollowButton />
+    </section>
+
     </div>
 </template>
 <script>
     import Navbar from '../components/Navbar'
+    import LikeButton from '../components/LikeButton'
+    import FollowButton from '../components/FollowButton'
+
     export default {
         name: 'Index',
         components: {
-          Navbar
+          Navbar,
+          LikeButton,
+          FollowButton
         }
     }
 </script>

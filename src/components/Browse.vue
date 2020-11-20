@@ -4,7 +4,7 @@
     <section class="main-container">
       <div class="personArea">
           <h1> Browse users </h1>
-        <ul v-for="(item, index) in posts" :key="index">
+        <ul v-for="(item, index) in persons" :key="index">
           <div class="person">
             <img :src="item.avatar" id="avatar" />
             <h1>{{ item.firstname }} {{ item.lastname }}</h1>
@@ -26,12 +26,12 @@ export default {
     FollowButton,
   },
   computed: {
-    posts() {
-    return this.$store.state.posts
+    persons() {
+    return this.$store.state.persons
     }
   },
   mounted() {
-    this.$store.dispatch("getPosts");
+    this.$store.dispatch("getPersons");
   }
 };
 </script>

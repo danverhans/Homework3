@@ -12,8 +12,9 @@
           <img src="../assets/logo.png" alt="postIt" @click="show = !show">
         </div>
         <div class="drop-down-container" v-show="show">
-            <span id="user-name">John Doe</span>
-            <span id="user-email">lisa-siia@gmail.com</span>
+            <img :src="user.avatar" id="postavatar" />
+            <span id="user-name">{{user.firstname}} {{user.lastname}}</span>
+            <span id="user-email">{{user.email}}</span>
             <span class="separator"></span> 
             <span v-if=isNextBrowse><router-link to="/browse" >Browse</router-link></span>
             <span v-else><router-link to="/index" >Index</router-link></span>
@@ -40,7 +41,13 @@ export default {
       isNextBrowse: function(){
           if(this.goNext == "Browse") return true
           else return false
-      }
+      },
+    user() {
+    return this.$store.state.user
+    }
+  },
+  mounted() {
+    this.$store.dispatch("getUser");
   }
         
 }

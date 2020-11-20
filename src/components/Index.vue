@@ -4,23 +4,27 @@
     <section class="main-container">
       <ul v-for="(item, index) in posts" :key="index">
         <div class="post">
-           <div id="post"/>
-        <div id="postheader">
-        <img :src="item.person.avatar" id="postavatar"/>
-       <h3 id=author>{{item.person.firstname}} {{item.person.lastname}}</h3>
-        <h5 id=time>{{item.time}}</h5>
-        </div>
-        <div v-if="item.media!=null">
-          <div v-if="item.media.type=='image'">
-               <img :src="item.media.url" id="postmedia"/>
+          <div id="post" />
+          <div id="postheader">
+            <img :src="item.author.avatar" id="postavatar" />
+            <h3 id="author">
+              {{ item.author.firstname }} {{ item.author.lastname }}
+            </h3>
+            <h5 id="time">{{ item.createTime }}</h5>
           </div>
-          <div v-else>
-                <video controls><source :src="item.media.url" type="video/mp4" id="postmedia"></video>
+          <div v-if="item.media != null">
+            <div v-if="item.media.type == 'image'">
+              <img :src="item.media.url" id="postmedia" />
+            </div>
+            <div v-else>
+              <video controls>
+                <source :src="item.media.url" type="video/mp4" id="postmedia" />
+              </video>
+            </div>
           </div>
-        </div>
-        <div v-if="item.text!=null">
-            <h3>{{item.text}}</h3>
-        </div>
+          <div v-if="item.text != null">
+            <h3>{{ item.text }}</h3>
+          </div>
           <LikeButton />
         </div>
       </ul>
@@ -42,6 +46,9 @@ export default {
       return this.$store.state.posts;
     },
   },
+  mounted() {
+    this.$store.dispatch("getPosts");
+  },
 };
 </script>
 
@@ -54,87 +61,84 @@ export default {
   padding: 90px 15px 15px 15px;
   background-color: #ffffff;
 }
-.posts >div {
-    width: 90%;
-    margin: 15px;
-    padding: 3%;
-    box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
-    border-radius: 5%;
+.posts > div {
+  width: 90%;
+  margin: 15px;
+  padding: 3%;
+  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+  border-radius: 5%;
 }
-#postmedia{
-    width: 100%;
+#postmedia {
+  width: 100%;
 }
-video{
-    width: 100%;
+video {
+  width: 100%;
 }
-#postheader{
-    display: inline-block;
-}
-
-#author{
-    display: inline-block;
-    padding-left: 5%;
-}
-#time{
-    
-    float: right;
-    align-self: right;
+#postheader {
+  display: inline-block;
 }
 
-#menu{
-    display: none;
-    width: 220px;
-    height: 140px;
-    position: absolute;
-    background-color: #ffffff;
-    right: 0;
-    text-align: left;
+#author {
+  display: inline-block;
+  padding-left: 5%;
 }
-#menu> form{
-    display: block;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-#menu> form > ul > li {
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-    padding: 5px;
-    border-top: 1px solid grey;
-    float: left;
+#time {
+  float: right;
+  align-self: right;
 }
 
-.personArea{
-    align-content: center;
+#menu {
+  display: none;
+  width: 220px;
+  height: 140px;
+  position: absolute;
+  background-color: #ffffff;
+  right: 0;
+  text-align: left;
 }
-.personArea >div{
-    margin: 5%;
-    padding: 5%;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
-    border-radius: 5%;
+#menu > form {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
 }
-#postavatar{
-    object-fit: cover;
-    object-position: center top;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    padding: 100 px;
+#menu > form > ul > li {
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  padding: 5px;
+  border-top: 1px solid grey;
+  float: left;
+}
+
+.personArea {
+  align-content: center;
+}
+.personArea > div {
+  margin: 5%;
+  padding: 5%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+  border-radius: 5%;
+}
+#postavatar {
+  object-fit: cover;
+  object-position: center top;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 100 px;
 }
 
 #avatar {
-    object-fit: cover;
-    object-position: center top;
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-  }
+  object-fit: cover;
+  object-position: center top;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
 
- .postmedia{
-     width: max-content;
- }
-
-
+.postmedia {
+  width: max-content;
+}
 </style>

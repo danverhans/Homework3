@@ -4,8 +4,8 @@
         <Button v-if=liked() @click="liked=!liked" class="button-liked"><img src="../assets/like.png"></Button>
         <Button v-else @click="liked=!liked" class="button-disliked"><img src="../assets/like.png"></Button>
         -->
-        <Button @click="liked=!liked" v-show="!liked" class="button-liked"><img src="../assets/like.png"></Button>
-        <Button @click="liked=!liked" v-show="liked" class="button-disliked"><img src="../assets/like.png"></Button>
+        <Button @click="liked=!liked" v-show="!liked" class="button-liked"><img src="../assets/like.png"> {{likes}}</Button>
+        <Button @click="liked=!liked" v-show="liked" class="button-disliked"><img src="../assets/like.png"> {{likes}}</Button>
 
 
     </div>
@@ -14,6 +14,7 @@
 
 export default {
     name: 'LikeButton',  
+    props:['likes'],
     data: function(){
             return{
                 liked: false

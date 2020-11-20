@@ -24,7 +24,7 @@
           <div v-if="item.text != null">
             <h3>{{ item.text }}</h3>
           </div>
-          <LikeButton />
+          <LikeButton :likes="item.likes"/>
         </div>
       </ul>
     </section>

@@ -1,32 +1,18 @@
 <template>
     <div>
-        <Button v-if=followed() @click="setInfo" class="follow">{{info}}</Button>
-        <Button v-else @click="setInfo" class="unfollow">{{info}}</Button>
+        <Button @click="follow = !follow" v-show="follow" class="follow">Follow</Button>
+        <Button @click="follow = !follow" v-show="!follow" class="unfollow">Unfollow</Button>
     </div>
 </template>
 <script>
 
 export default {
     name: 'FollowButton',  
-    props: {
-      info: {
-          type: String,
-          default: "Follow"
-        }
-    },
-    methods: {
-      setInfo: function() {
-          if(this.info == "Follow"){
-              this.info = "Unfollow"
-          } else {
-              this.info = "Follow"
-          }
-      },
-      followed: function(){
-          if(this.info == "Follow") return true
-          else return false
-    }
-  }
+    data: function(){
+            return{
+                follow: true
+            }
+        },
 
 }
 </script>

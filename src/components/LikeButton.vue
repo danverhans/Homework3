@@ -1,33 +1,24 @@
 <template>
     <div>
-        <Button v-if=liked() @click="setInfo" class="button-liked"><img src="../assets/like.png"></Button>
-        <Button v-else @click="setInfo" class="button-disliked"><img src="../assets/like.png"></Button>
+        <!--
+        <Button v-if=liked() @click="liked=!liked" class="button-liked"><img src="../assets/like.png"></Button>
+        <Button v-else @click="liked=!liked" class="button-disliked"><img src="../assets/like.png"></Button>
+        -->
+        <Button @click="liked=!liked" v-show="!liked" class="button-liked"><img src="../assets/like.png"></Button>
+        <Button @click="liked=!liked" v-show="liked" class="button-disliked"><img src="../assets/like.png"></Button>
+
+
     </div>
 </template>
 <script>
 
 export default {
     name: 'LikeButton',  
-    props: {
-      info: {
-          type: String,
-          default: "Like"
-        }
-    },
-    methods: {
-      setInfo: function() {
-          if(this.info == "Like"){
-              this.info = "Dislike"
-          } else {
-              this.info = "Like"
-          }
-      },
-      liked: function(){
-          if(this.info == "Like") return true
-          else return false
-    }
-  }
-
+    data: function(){
+            return{
+                liked: false
+            }
+        },
 }
 </script>
 

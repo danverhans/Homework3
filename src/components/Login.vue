@@ -2,7 +2,7 @@
     <section class="login-page">
       <section id="login-container">
         <div>
-          <h1>Welcome to postIt!</h1>
+          <h1>Welcome to PostIt!</h1>
         </div>
         <div>
           <h4>

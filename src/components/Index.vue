@@ -9,7 +9,7 @@
             <h3 id="author">
               {{ item.author.firstname }} {{ item.author.lastname }}
             </h3>
-            <h5 id="time">{{ item.createTime }}</h5>
+            <h5 id="time">{{ item.createTime | formatDate }}</h5>
           </div>
           <div v-if="item.media != null">
             <div v-if="item.media.type == 'image'">
@@ -31,6 +31,8 @@
   </div>
 </template>
 <script>
+
+
 import Navbar from "../components/Navbar";
 import LikeButton from "../components/LikeButton";
 
@@ -48,6 +50,17 @@ export default {
   mounted() {
     this.$store.dispatch("getPosts");
   },
+  filters: {
+            formatDate: function (value) {
+                if (!value) return ''
+                let date = new Date(value);
+                return date.getFullYear() + "-"
+                    + date.getMonth() + "-"
+                    + date.getDate() + " "
+                    + date.getHours() + ":"
+                    + date.getMinutes() 
+            }
+        }
 };
 </script>
 

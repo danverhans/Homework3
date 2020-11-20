@@ -6,6 +6,7 @@ import Index from "./components/Index";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
 import WrongPage from "./components/WrongPage";
+import Person from "./models/Person";
 
 
 
@@ -21,11 +22,31 @@ const routes = [
 
 ];
 
+const store = new Vuex.Store({
+    state: {
+        persons: [new Person("John","Doe", "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80")]
+    },
+    mutations: {
+    },
+    getters: {
+        itemIsSelected: (state) => (id) => {
+            return state.cart.selected.indexOf(id) > -1
+        }, getPerson: (state)=> (id) => state.persons[id] ,
+            getPersons: (state)=> state.persons,
+        
+    },
+    actions: {
+        
+
+    }
+});
+
 const router = new VueRouter({routes});
 
 
 new Vue({
     router,
+    store,
     render: h => h(App),
 }).$mount('#app');
 

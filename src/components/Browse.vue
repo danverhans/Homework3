@@ -3,10 +3,14 @@
     <Navbar goNext="Index" />
     <section class="main-container">
       <div class="personArea">
-        jou
-            <img :src="persons[0].avatar" />
-            <h4>{{ persons[0].firstname }} {{ persons[0].lastname }}</h4>
-    
+          <h1> Browse users </h1>
+        <ul v-for="(item, index) in persons" :key="index">
+          <div class="person">
+            <img :src="item.avatar" id="avatar" />
+            <h1>{{ item.firstname }} {{ item.lastname }}</h1>
+            <FollowButton />
+          </div>
+        </ul>
       </div>
     </section>
   </div>
@@ -14,19 +18,18 @@
 
 <script>
 import Navbar from "../components/Navbar";
+import FollowButton from "../components/FollowButton";
 export default {
   name: "Browse",
   components: {
     Navbar,
+    FollowButton,
   },
-  computed:{
-      persons: function () {
-                return this.$store.state.persons
-            },
-            
-            
+  computed: {
+    persons: function () {
+      return this.$store.state.persons;
+    },
   },
-
 };
 </script>
 
@@ -41,5 +44,42 @@ export default {
 }
 .personArea {
   align-content: center;
+}
+ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+
+.person {
+  margin: 5%;
+  padding: 5%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+  border-radius: 5%;
+}
+#postavatar {
+  object-fit: cover;
+  object-position: center top;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 100 px;
+}
+
+#avatar {
+  object-fit: cover;
+  object-position: center top;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.postmedia {
+  width: max-content;
+}
+
+h1 {
+  text-align: center;
 }
 </style>

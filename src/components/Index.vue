@@ -54,8 +54,9 @@ export default {
             formatDate: function (value) {
                 if (!value) return ''
                 let date = new Date(value);
+                let month= date.getMonth()+1;
                 return date.getFullYear() + "-"
-                    + date.getMonth() + "-"
+                    + 0+month + "-"
                     + date.getDate() + " "
                     + date.getHours() + ":"
                     + date.getMinutes() 

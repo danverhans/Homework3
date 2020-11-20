@@ -24,11 +24,11 @@ const routes = [
 
 const store = new Vuex.Store({
     state: {
-        posts: [],
+        persons: [],
     },
     mutations: {
-        SET_POSTS(state, posts) {
-            state.posts = posts
+        SET_PERSONS(state, persons) {
+            state.persons = persons
         }
     },
     getters: {
@@ -38,10 +38,10 @@ const store = new Vuex.Store({
 
     },
     actions: {
-        getPosts({ commit }) {
+        getPersons({ commit }) {
             axios.get('https://private-anon-1a5282cbfb-wad20postit.apiary-mock.com/profiles')
                 .then(response => {
-                    commit('SET_POSTS', response.data)
+                    commit('SET_PERSONS', response.data)
                 })
         }
 

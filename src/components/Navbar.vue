@@ -31,23 +31,23 @@ export default {
   props: {
       goNext: String
   },
-  data: function(){
-            return{
-                show: false
-            }
-        },
+    data: function(){
+        return{
+            show: false
+        }
+    },
   computed: {
-      isNextBrowse: function(){
-          if(this.goNext == "Browse") return true
-          else return false
-      },
+    isNextBrowse: function(){
+        if(this.goNext == "Browse") return true
+        else return false
+    },
     user() {
-    return this.$store.state.user
+        return this.$store.state.user
     }
-  },
-  mounted() {
-    this.$store.dispatch("getUser");
-  }
+    },
+    mounted() {
+        this.$store.dispatch("getUser");
+    }
         
 }
 </script>
@@ -63,19 +63,19 @@ header {
 header:hover {
     box-shadow: 0 -20px 30px #4d4d4d;
 }
-    .profile-pic {
-        margin-right: 15px;
-        text-align: right;
-    }
-    .drop-down-container {
-    position: absolute;
-    min-width: 150px;
-    height: auto;
-    background-color: #ffffff;
-    padding: 10px;
-    right: 0;
-    top: 50px;
-    text-align: left;
+.profile-pic {
+    margin-right: 15px;
+    text-align: right;
+}
+.drop-down-container {
+position: absolute;
+min-width: 150px;
+height: auto;
+background-color: #ffffff;
+padding: 10px;
+right: 0;
+top: 50px;
+text-align: left;
 }
 nav {
     display: flex;

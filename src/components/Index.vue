@@ -82,8 +82,8 @@ video {
   padding-left: 5%;
 }
 #time {
-  float: right;
-  align-self: right;
+  float: left;
+  align-self: left;
 }
 
 #menu {
@@ -127,14 +127,6 @@ video {
   width: 50px;
   border-radius: 50%;
   padding: 100 px;
-}
-
-#avatar {
-  object-fit: cover;
-  object-position: center top;
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
 }
 
 .postmedia {

@@ -4,7 +4,6 @@
     <section class="main-container">
       <ul v-for="(item, index) in posts" :key="index">
         <div class="post">
-          <div id="post" />
           <div id="postheader">
             <img :src="item.author.avatar" id="postavatar" />
             <h3 id="author">
@@ -61,7 +60,7 @@ export default {
   padding: 90px 15px 15px 15px;
   background-color: #ffffff;
 }
-.posts > div {
+ul > div {
   width: 90%;
   margin: 15px;
   padding: 3%;

@@ -29,7 +29,7 @@
 export default {
   name: 'Navbar',
   props: {
-      goNext: Boolean
+      goNext: String
   },
   data: function(){
             return{
